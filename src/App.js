@@ -4,9 +4,7 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>I'm a Baz</h1>
-      </div>
+      React.createElement('div', {className: 'App'}, React.createElement('h1', null, "I'm a Baz"))
     );
   }
 }
