@@ -6,9 +6,9 @@ import { throws } from 'assert';
 class App extends Component {
   state = {
     person: [
-      {name: "max", age: 28},
-      {name: "Ale", age: 18},
-      {name: "Paole", age: 38},
+      {id: "sdfg", name: "max", age: 28},
+      {id: "ew3rf", name: "Ale", age: 18},
+      {id: "asd2", name: "Paole", age: 38},
     ],
     showpersons: false
   }
@@ -42,7 +42,8 @@ class App extends Component {
           {this.state.person.map((i) => {
             return <Person 
               name={i.name} 
-              age={i.age}/>
+              age={i.age}
+              key={i.id}/>
           })}
         </div>
       );
