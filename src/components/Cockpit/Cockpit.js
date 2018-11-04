@@ -27,7 +27,7 @@ const cockpit = (props) => {
     }
     return (
         <div>
-            <h1>Bau</h1>
+            <h1>{props.appTitle}</h1>
             <p className={classes.join(" ")}>Dinamically change color</p>
             <button 
             style={style}
