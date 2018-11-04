@@ -10,7 +10,7 @@ class App extends Component {
       {name: "Ale", age: 18},
       {name: "Paole", age: 38},
     ],
-    showdiv: false
+    showpersons: false
   }
 
   switchnameHandler = (newname) =>{
@@ -31,8 +31,8 @@ class App extends Component {
     ]});
   }
 
-  toggledivHandler = () => {
-    this.setState({showdiv: !this.state.showdiv});
+  togglepersonsHandler = () => {
+    this.setState({showpersons: !this.state.showpersons});
   }
 
   render() {
@@ -44,30 +44,32 @@ class App extends Component {
       cursor: 'pointer'
     }
 
+    let persons = null;
+    if (this.state.showpersons) {
+      persons = (
+        <div>
+          <Person 
+            name={this.state.person[0].name} 
+            age={this.state.person[0].age}/>
+          <Person 
+            name={this.state.person[1].name} 
+            age={this.state.person[1].age}
+            click={this.switchnameHandler.bind(this, 'Maaax')}
+            changed={this.namechangedHandler}>And I'm bad</Person>
+          <Person 
+            name={this.state.person[2].name} 
+            age={this.state.person[2].age}/>
+        </div>
+      );
+    }
+
     return (
       <div className="App">
         <h1>Bau</h1>
-        <div>
-          <button onClick={this.toggledivHandler}>Toggle Some Div</button>
-          {this.state.showdiv ?
-            <div><p>Hi there!</p></div>
-            : null
-          }
-        </div>
         <button 
           style={style}
-          onClick={() => this.switchnameHandler('Maxim')}>Click me!</button>
-        <Person 
-          name={this.state.person[0].name} 
-          age={this.state.person[0].age}/>
-        <Person 
-          name={this.state.person[1].name} 
-          age={this.state.person[1].age}
-          click={this.switchnameHandler.bind(this, 'Maaax')}
-          changed={this.namechangedHandler}>And I'm bad</Person>
-        <Person 
-          name={this.state.person[2].name} 
-          age={this.state.person[2].age}/>
+          onClick={this.togglepersonsHandler}>Click me!</button>
+        {persons}
       </div>
     );
   }
