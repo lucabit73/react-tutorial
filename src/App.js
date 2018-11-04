@@ -23,9 +23,16 @@ class App extends Component {
       <div className="App">
         <h1>Bau</h1>
         <button onClick={this.switchnameHandler}>Click me!</button>
-        <Person name={this.state.person[0].name} age={this.state.person[0].age}/>
-        <Person name={this.state.person[1].name} age={this.state.person[1].age}>And I'm bad</Person>
-        <Person name={this.state.person[2].name} age={this.state.person[2].age}/>
+        <Person 
+          name={this.state.person[0].name} 
+          age={this.state.person[0].age}/>
+        <Person 
+          name={this.state.person[1].name} 
+          age={this.state.person[1].age}
+          click={this.switchnameHandler}>And I'm bad</Person>
+        <Person 
+          name={this.state.person[2].name} 
+          age={this.state.person[2].age}/>
       </div>
     );
   }
