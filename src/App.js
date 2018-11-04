@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person'
+import { throws } from 'assert';
 
 class App extends Component {
   state = {
@@ -8,7 +9,8 @@ class App extends Component {
       {name: "max", age: 28},
       {name: "Ale", age: 18},
       {name: "Paole", age: 38},
-    ]
+    ],
+    showdiv: false
   }
 
   switchnameHandler = (newname) =>{
@@ -17,7 +19,7 @@ class App extends Component {
         {name: newname, age: 28},
         {name: "Ale", age: 18},
         {name: "Paole", age: 138},
-    ]});
+      ]});
   }
 
   namechangedHandler = (event) => {
@@ -27,6 +29,10 @@ class App extends Component {
         {name: event.target.value, age: 18},
         {name: "Paole", age: 38},
     ]});
+  }
+
+  toggledivHandler = () => {
+    this.setState({showdiv: !this.state.showdiv});
   }
 
   render() {
@@ -41,6 +47,13 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Bau</h1>
+        <div>
+          <button onClick={this.toggledivHandler}>Toggle Some Div</button>
+          {this.state.showdiv ?
+            <div><p>Hi there!</p></div>
+            : null
+          }
+        </div>
         <button 
           style={style}
           onClick={() => this.switchnameHandler('Maxim')}>Click me!</button>
