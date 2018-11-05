@@ -1,6 +1,7 @@
 import React from 'react';
 import './Person.css';
 import Radium from 'radium';
+import PropTypes from 'prop-types'
 
 const person = (props) => {
     const style = {
@@ -15,6 +16,13 @@ const person = (props) => {
             {props.children}
         </div>
     )
+}
+
+person.propTypes = {
+    click: PropTypes.func,
+    name: PropTypes.string,
+    age: PropTypes.number,
+    changed: PropTypes.func
 }
 
 export default Radium(person)
